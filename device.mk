@@ -18,8 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -100,7 +99,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libbson \
-    Camera2 \
+    SnapdragonCamera2 \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
@@ -118,9 +117,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     CarrierConfig
 
-# LineageActions
+# MotoActions
 PRODUCT_PACKAGES += \
-    LineageActions
+    MotoActions
 
 # Display
 PRODUCT_PACKAGES += \
@@ -248,11 +247,6 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.cedric \
     lights.msm8937
 
-# Display Calibration
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm \
-    vendor.lineage.livedisplay@2.0-service-sysfs
-
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml \
 #    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml
@@ -293,7 +287,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+    android.hardware.power@1.2-service
 
 # Public Libraries
 PRODUCT_COPY_FILES += \
@@ -372,17 +366,9 @@ PRODUCT_PACKAGES += \
     sensors.tof \
     sensors.tof.vl53l0
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-cedric.conf:system/vendor/etc/thermal-engine.conf
-
-# Touch HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.cedric
 
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
@@ -451,3 +437,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.media_vol_steps=20
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
+
+PRODUCT_CFI_INCLUDE_PATHS += \
+    hardware/qcom/wlan-caf/qcwcn/wpa_supplicant_8_lib

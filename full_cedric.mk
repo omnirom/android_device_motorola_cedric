@@ -14,18 +14,13 @@
 # limitations under the License.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n.mk)
 
-# Inherit from cedric device
-$(call inherit-product, device/motorola/cedric/device.mk)
+# Inherit from potter device
+
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := cedric
 PRODUCT_NAME := full_cedric
-PRODUCT_MODEL := Moto G5
 
 # for specific
-$(call inherit-product, vendor/motorola/cedric/cedric-vendor.mk)

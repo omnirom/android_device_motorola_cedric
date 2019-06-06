@@ -38,3 +38,7 @@ binder_call(mm-qcamerad, system_server)
 
 allow mm-qcamerad camera_data_file:dir search;
 allow mm-qcamerad sysfs:file { open read };
+allow mm-qcamerad adspd_prop:file { getattr open };
+allow mm-qcamerad bg_boot_complete_prop:file { getattr open };
+allow mm-qcamerad bg_daemon_prop:file { getattr open };
+allow mm-qcamerad bluetooth_prop:file { getattr open };
